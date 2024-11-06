@@ -10,10 +10,31 @@ export default function Code_Editor() {
 
   useEffect(() => {
   
+    let myTheme = EditorView.theme({
+      "&": {
+        color: "white",
+        backgroundColor: "#034" // Dark blue background
+      },
+      ".cm-content": {
+        caretColor: "#0e9" // Bright cyan caret
+      },
+      "&.cm-focused .cm-cursor": {
+        borderLeftColor: "#0e9" // Bright cyan cursor
+      },
+      "&.cm-focused .cm-selectionBackground, ::selection": {
+        backgroundColor: "#074" // Dark green selection background
+      },
+      ".cm-gutters": {
+        backgroundColor: "#045", // Slightly lighter dark blue for gutters
+        color: "#ddd", // Light gray text for line numbers
+        border: "none"
+      }
+    }, { dark: true });
 
     const view  = new EditorView({
-        extensions: [basicSetup],
-        parent: document.body
+        extensions: [basicSetup ,  myTheme],
+        parent: document.body ,
+        
       })
 
 
@@ -22,5 +43,5 @@ export default function Code_Editor() {
     }
   }, [editor])
 
-  return <div  className="bg-black" ref={editor}></div>
+  return <div   ref={editor}></div>
 }

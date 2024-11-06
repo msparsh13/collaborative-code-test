@@ -1,11 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
 import Code_Editor from './components/code_editor';
+import { LoginForm } from './components/login';
+import Codepage from './page/editor_page';
 
 function App() {
   return (
    <div>
-    <Code_Editor></Code_Editor>
+    
+    <Codepage/>
     </div>
   );
 }
